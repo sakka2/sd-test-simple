@@ -1,0 +1,17 @@
+#annotations:
+#  screwdriver.cd/buildCluster: xxxxxxxxx
+
+shared:
+  image: node:22.13.0
+  environment:
+    SD_ZIP_ARTIFACTS: true
+  annotations:
+    screwdriver.cd/cpu: MICRO
+    screwdriver.cd/ram: MICRO
+    #screwdriver.cd/buildCluster: xxxxxxxx
+
+jobs:
+  job1:
+    steps:
+      - echo_node_id: echo $NODE_ID
+      - sleep: sleep 1000
