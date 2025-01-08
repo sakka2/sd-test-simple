@@ -2,7 +2,7 @@
 #  screwdriver.cd/buildCluster: xxxxxxxxx
 
 shared:
-  image: node:22.13.0
+  image: node:latest
   environment:
     SD_ZIP_ARTIFACTS: true
   annotations:
