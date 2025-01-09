@@ -21,7 +21,7 @@ jobs:
             -H 'accept: application/json' \
             -H "Authorization: Bearer ${SD_TOKEN}" \
             -H 'Content-Type: application/json' \
-            -d '{ "meta" : { "foo" : "bar" } }'
+            -d '{ "meta" : { "commit" : { "message" : "bar" } } }'
           echo $?
       - echo-meta: meta get foo
       - update-status: |
