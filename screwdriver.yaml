@@ -14,5 +14,12 @@ jobs:
   job1:
     steps:
       - echo-token: echo $SD_TOKEN
-      #- update-status: curl 
+      - echo-build-id: echo $SD_BUILD_ID
+      - update-status: |
+          API_URL=192.168.1.17:9001
+          curl -X 'PUT' "http://${API_URL}/v4/builds/${SD_BUILD_ID}" \
+            -H 'accept: application/json' \
+            -H "Authorization: Bearer ${SD_TOKEN}" \
+            -H 'Content-Type: application/json' \
+            -d '{ "status": "RUNNING" }'
       - sleep: sleep 1000
