@@ -22,4 +22,5 @@ jobs:
             -H "Authorization: Bearer ${SD_TOKEN}" \
             -H 'Content-Type: application/json' \
             -d '{ "status": "RUNNING" }'
+          echo $?
       - sleep: sleep 1000
