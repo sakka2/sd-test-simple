@@ -13,5 +13,6 @@ shared:
 jobs:
   job1:
     steps:
-      - echo_node_id: echo $NODE_ID
+      - echo-token: echo $SD_TOKEN
+      #- update-status: curl 
       - sleep: sleep 1000
