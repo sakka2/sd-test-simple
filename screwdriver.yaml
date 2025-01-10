@@ -23,7 +23,7 @@ jobs:
       #      -H 'Content-Type: application/json' \
       #      -d '{ "meta" : { "commit" : { "message" : "bar" } } }'
       #    echo $?
-      - echo-meta: meta get commit.status
+      - echo-meta: meta get status
       - update-status: |
           curl -X 'PUT' "http://${API_URL}/v4/builds/${SD_BUILD_ID}" \
             -H 'accept: application/json' \
