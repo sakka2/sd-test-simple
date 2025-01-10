@@ -14,6 +14,7 @@ shared:
 jobs:
   job1:
     steps:
+      - echo-api: echo $SD_API_URL
       - echo-token: echo $SD_TOKEN
       - echo-build-id: echo $SD_BUILD_ID
       #- update-meta: |
@@ -25,7 +26,6 @@ jobs:
       #    echo $?
       #- echo-meta: meta get status
       - update-status: |
-          #curl -X 'PUT' "http://${API_URL}/v4/builds/${SD_BUILD_ID}" \
           curl -X 'PUT' "${SD_API_URL}/builds/${SD_BUILD_ID}" \
             -H 'accept: application/json' \
             -H "Authorization: Bearer ${SD_TOKEN}" \
