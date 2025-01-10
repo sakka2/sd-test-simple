@@ -16,14 +16,14 @@ jobs:
     steps:
       - echo-token: echo $SD_TOKEN
       - echo-build-id: echo $SD_BUILD_ID
-      - update-meta: |
-          curl -X 'PUT' "http://${API_URL}/v4/builds/${SD_BUILD_ID}" \
-            -H 'accept: application/json' \
-            -H "Authorization: Bearer ${SD_TOKEN}" \
-            -H 'Content-Type: application/json' \
-            -d '{ "meta" : { "commit" : { "message" : "bar" } } }'
-          echo $?
-      - echo-meta: meta get commit.message
+      #- update-meta: |
+      #    curl -X 'PUT' "http://${API_URL}/v4/builds/${SD_BUILD_ID}" \
+      #      -H 'accept: application/json' \
+      #      -H "Authorization: Bearer ${SD_TOKEN}" \
+      #      -H 'Content-Type: application/json' \
+      #      -d '{ "meta" : { "commit" : { "message" : "bar" } } }'
+      #    echo $?
+      - echo-meta: meta get status
       - update-status: |
           curl -X 'PUT' "http://${API_URL}/v4/builds/${SD_BUILD_ID}" \
             -H 'accept: application/json' \
