@@ -26,7 +26,7 @@ jobs:
       #    echo $?
       #- echo-meta: meta get status
       - update-status: |
-          curl -X 'PUT' "${SD_API_URL}/builds/${SD_BUILD_ID}" \
+          curl -X 'PUT' "${SD_API_URL}builds/${SD_BUILD_ID}" \
             -H 'accept: application/json' \
             -H "Authorization: Bearer ${SD_TOKEN}" \
             -H 'Content-Type: application/json' \
