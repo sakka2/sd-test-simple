@@ -5,7 +5,7 @@ shared:
   image: node:latest
   environment:
     SD_ZIP_ARTIFACTS: true
-    API_URL: 192.168.1.17:9001
+    #API_URL: 192.168.x.x:9001
   annotations:
     screwdriver.cd/cpu: MICRO
     screwdriver.cd/ram: MICRO
@@ -17,7 +17,7 @@ jobs:
       - echo-token: echo $SD_TOKEN
       - echo-build-id: echo $SD_BUILD_ID
       #- update-meta: |
-      #    curl -X 'PUT' "http://${API_URL}/v4/builds/${SD_BUILD_ID}" \
+      #    curl -X 'PUT' "${SD_API_URL}/builds/${SD_BUILD_ID}" \
       #      -H 'accept: application/json' \
       #      -H "Authorization: Bearer ${SD_TOKEN}" \
       #      -H 'Content-Type: application/json' \
@@ -25,10 +25,11 @@ jobs:
       #    echo $?
       #- echo-meta: meta get status
       - update-status: |
-          curl -X 'PUT' "http://${API_URL}/v4/builds/${SD_BUILD_ID}" \
+          #curl -X 'PUT' "http://${API_URL}/v4/builds/${SD_BUILD_ID}" \
+          curl -X 'PUT' "${SD_API_URL}/builds/${SD_BUILD_ID}" \
             -H 'accept: application/json' \
             -H "Authorization: Bearer ${SD_TOKEN}" \
             -H 'Content-Type: application/json' \
             -d '{ "status": "RUNNING" }'
           echo $?
-      - sleep: sleep 1000
+      - sleep: sleep 100
