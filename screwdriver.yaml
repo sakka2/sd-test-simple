@@ -32,4 +32,4 @@ jobs:
             -H 'Content-Type: application/json' \
             -d '{ "status": "RUNNING" }'
           echo $?
-      - sleep: sleep 100
+      - sleep: sleep 1
